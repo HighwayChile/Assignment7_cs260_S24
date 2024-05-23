@@ -1,9 +1,12 @@
 #include "hashtable.h"
 // #include <iostream>
 
+// using namespace std;
+
+
 Hashtable::Hashtable(int initialsize) {
-    // so this caused a big bugaboo for me... I had re-declared these vars as 
-    // ints and it would not allow my code to run the string tests.. classic.
+    // so this caused a bit of a bugaboo for me... I had re-declared these vars as 
+    // ints and it would not allow my code to run the string tests... classic.
     current_size = 0;
     total_capacity = initialsize;
 
@@ -37,7 +40,7 @@ int Hashtable::insert(string new_key) {
     // collusion detection and handling... (make it overwrite!)
     if(values[index] == "" && new_key != "") {
         current_size++;
-    } else {
+    } else { // either colliding or inserting a new_key of ""
         result = -1;
     }
 
@@ -68,6 +71,17 @@ string Hashtable::contains(string current_key){
 }
 
 
-// string Hashtable::remove(string old_key) {
 
-// }
+// this will take the result of the contains() function and use it
+string Hashtable::remove(string old_key) {
+
+    string result = "";
+
+    int index = hash(old_key);
+
+    if(contains(old_key) == values[index]) {
+        result = "\nthis is a test printout, this confirms remove() was reached.\n";
+    }
+
+    return result;
+}

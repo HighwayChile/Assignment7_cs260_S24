@@ -20,13 +20,20 @@ SMARTER HASH TABLE -
 
 I am going to get away from the switch-based menu. I do love the old-timey feel, but even the older programs I use that have 
 that sort of interface often have a simple parser that accepts the string input from the user, as well. So I will make a String-based 
-hashtable! - questiontoself - should I use ascii, or built-in string libraries? It kind of sounds like it must be ascii... seek clarity.  
+hashtable! - questiontoself - should I use ascii, or built-in string libraries? It kind of sounds like it must be ascii... seek clarity. - answers found. String works.    
 
-Should I use a linked list or a binary tree? I struggled with the binary tree, so I am going to use that. I need more practice. Also, it sounds like binary tree is much better.  
 
 TEST DESIGN - insert() test could work exactly like my previous testing method, where I insert values into the hastable then print out the hastable to verify the correct placement of the value in the hashtable. I liked the test functions I had written previously, but I really should make it into a separate module to make testing for the instructor more streamlined. 
 
-I want my hashtable to give another chance to search after a failed search (contains())  
+I want my hashtable to give another chance to search after a failed search (contains())
+
+contains() should search each index value and compare using a for loop. 
+
+
+insert() should take the input and look for an index in a linked list. Something like: for(i : total_capacity) {increment num_nodes and if the same as one}
+
+
+remove() could use cointains, and if cointains(key) is in the hastable, remove that value. I have this halfway set up. Need testing and verification.
 
 
 
