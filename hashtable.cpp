@@ -83,9 +83,10 @@ string Hashtable::remove(string old_key) {
 
     if(contains(old_key) == values[index]) {
         current_size--;
-        result = "\nthis is a test printout, this confirms remove() was reached.\n";
+        values[index] = ""; // Clear the value
+        result = old_key;
     }
-
+    
     return result;
 }
 
