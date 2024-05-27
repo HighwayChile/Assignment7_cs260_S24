@@ -131,7 +131,9 @@ int main(int argc, char **argv) {
         else {
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a number between " << menu_min << " and " << menu_max << "." << endl;
+            cout << "Invalid input. Please enter a number between " << menu_min 
+            << " and " << menu_max << "." << endl;
+            cout << endl;
         }
     }
     return 0;
