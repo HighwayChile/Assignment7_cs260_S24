@@ -102,16 +102,3 @@ void Hashtable::display_table() {
         }
     }
 }
-
-
-// Other Hashtable methods...
-
-// void Hashtable::display_table() {
-//     for(int i = 0; i < total_capacity; ++i) {
-//         if (!values[i].empty()) {
-//             cout << "Index " << i << ": " << values[i] << endl;
-//         } else {
-//             cout << "Index " << i << ": " << "[Empty]" << endl;
-//         }
-//     }
-// }
