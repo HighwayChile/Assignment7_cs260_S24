@@ -6,17 +6,19 @@ hashtable for CS260 Spring 2024
 
 # Checklist  
  
-OVERALL - hashtable that solves collisions by overwriting the previous value.   √
-TESTS - one for each function  
-insert() function - inserts a value into the hashtable at appropriate location  √
-contains() function - searches hashtable for value, returns bool (Y or N)       √
-(optional) delete function - removes value based on hash and returns that value √ 
+OVERALL - hashtable that solves collisions by overwriting the previous value.   √  All files  
+TESTS - one for each function                                                   √  test_module.cpp  
+insert() function - inserts a value into the hashtable at appropriate location  √  hashtable.cpp, line 37  
+contains() function - searches hashtable for value                              √  hashtable.cpp, line 57  
+(optional) delete function - removes value based on hash and returns that value √  hashtable.cpp, line 78  
 
-SMARTER HASH TABLE -  
+SMARTER HASH TABLE -  NOT DONE
 
 
 
 # Design  
+
+I have designed and implemented a test function that tells the user if things are working, but if I were to run this test module (having not built it myself) I might not believe it is actually doing the things it is reporting. The UI is almost too simple and straightforward! It honestly looks like I just printed some formatted string to the console. But the test truly does work, I just used the functionality I had implemented in the "Main Menu" switch instance.
 
 I am going to get away from the switch-based menu. I do love the old-timey feel, but even the older programs I use that have 
 that sort of interface often have a simple parser that accepts the string input from the user, as well. So I will make a String-based 

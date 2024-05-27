@@ -76,21 +76,24 @@ int main(int argc, char **argv) {
                 }
 
             case 3:{
-                // cout << "You have chosen case 3 (Remove)" << endl;
-                cout << "Please enter name to be removed: " << endl;
+                cout << "Please enter name to be removed: ";
                 string user_input_remove;
                 getline(cin, user_input_remove);
-                string is_it_there = main_table.contains(user_input_remove);
 
                 string query = user_input_remove;
+
                 cout << endl;
-                if(query.empty() || is_it_there.empty()) {
+                if(query.empty()) {
                     cout << "Please give me a name!" << endl;
                 } else {
-                    main_table.remove(user_input_remove);
-                    cout << user_input_remove << " removed from the table" << endl;
-                }
-                // main_table.remove(user_input_remove);
+                    string is_it_there = main_table.contains(user_input_remove);
+                    if(is_it_there.empty()) {
+                        cout << user_input_remove << " not found in the table" << endl;
+                    } else {
+                        main_table.remove(user_input_remove);
+                        cout << user_input_remove << " removed from the table" << endl;
+                    }
+                } 
                 cout << endl;
                 break;
                 }
@@ -108,14 +111,12 @@ int main(int argc, char **argv) {
                 }
 
             case 5:{
-                // cout << "You have chosen case 5 (Display Table)" << endl;
                 main_table.display_table();
                 cout << endl;
                 break;
                 }
 
             case 6:{
-                // cout << "You have chosen case 6 (Quit)" << endl;
                 cout << "Quitting..." << endl;
                 system("pause");
                 main_table.~Hashtable();
