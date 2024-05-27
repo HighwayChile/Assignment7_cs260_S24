@@ -19,9 +19,7 @@ void show_menu(){
     << endl;
 }
 
-
 int main(int argc, char **argv) {
-
     Hashtable main_table;
 
     while(1) {
@@ -36,18 +34,19 @@ int main(int argc, char **argv) {
             // clears the newline character
             cin.ignore();
             switch (menu_choice) {
+
             case 1:{
                 /* Ask for user input and use that string as reference for search */
-                // cout << "You have chosen case 1 (Search)" << endl;
                 cout << "Please enter name to search: ";
                 string user_input_search;
-                // getline reads teh whole line!
+                // getline reads the whole line!
                 getline(cin, user_input_search);
-                // cout << "Searching for: " << user_input_search << endl;
 
                 string query = main_table.contains(user_input_search);
-                // learned about "empty()" today, and wow, is that helpful! I love built-in functions! Learned from chatGPT.
                 cout << endl;
+
+                // learned about "empty()" today, and wow, is that helpful! I love 
+                // built-in functions! Learned from chatGPT.
                 if(query.empty()) {
                     cout << user_input_search << " not found in the table" << endl;
                 } else {
@@ -56,6 +55,7 @@ int main(int argc, char **argv) {
                 cout << endl;
                 break;
             }
+
             case 2:{
                 cout << "Please enter name to be added: ";
                 string user_input_add;
@@ -74,6 +74,7 @@ int main(int argc, char **argv) {
                 cout << endl;
                 break;
                 }
+
             case 3:{
                 // cout << "You have chosen case 3 (Remove)" << endl;
                 cout << "Please enter name to be removed: " << endl;
@@ -93,23 +94,26 @@ int main(int argc, char **argv) {
                 cout << endl;
                 break;
                 }
+
             case 4:{
                 cout << "You have chosen case 4 (Populate Table)" << endl;
                 main_table.insert("Hamilton"); 
                 main_table.insert("Joe");
-                main_table.insert("Frank"); // Frank collides with something... either Joe, Hamilton, or Reynolds but it must be reynolds, because reynolds comes after frank!
+                main_table.insert("Frank"); // Frank collides with something... 
                 main_table.insert("Reynolds");   
                 main_table.insert("Dick");
                 main_table.insert("Jane");
                 cout << endl;
                 break;
                 }
+
             case 5:{
                 // cout << "You have chosen case 5 (Display Table)" << endl;
                 main_table.display_table();
                 cout << endl;
                 break;
                 }
+
             case 6:{
                 // cout << "You have chosen case 6 (Quit)" << endl;
                 cout << "Quitting..." << endl;
@@ -122,12 +126,12 @@ int main(int argc, char **argv) {
                 break;
                 }
             }
-        } 
+        }
+
         else {
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input. Please enter a number between " << menu_min << " and " << menu_max << "." << endl;
-            // main_table.~Hashtable();
         }
     }
     return 0;

@@ -31,7 +31,7 @@ int Hashtable::hash(string key) {
         result += character;
     }
 
-    return result % total_capacity; // mod capacity so we know the index is within the table
+    return result % total_capacity; // mod capacity so the index is within the table
 }
 
 int Hashtable::insert(string new_key) { 
