@@ -1,12 +1,13 @@
+#include <iostream>
 #include "hashtable.h"
-// #include <iostream>
 
-// using namespace std;
+using namespace std;
+
 
 
 Hashtable::Hashtable(int initialsize) {
     // so this caused a bit of a bugaboo for me... I had re-declared these vars as 
-    // ints and it would not allow my code to run the string tests... classic.
+    // ints and it would not allow my code to run the string tests... classic mistake.
     current_size = 0;
     total_capacity = initialsize;
 
@@ -24,6 +25,8 @@ int Hashtable::hash(string key) {
     // very simple hash function
     int result = 0;
 
+    // "auto" data type allows for any input type
+    // for each character, if it also has a key, step to next index.
     for(auto character : key) {
         result += character;
     }
@@ -37,7 +40,7 @@ int Hashtable::insert(string new_key) {
     int result = 0;
     int index = hash(new_key);
 
-    // collusion detection and handling... (make it overwrite!)
+    // collision detection and handling... (make it overwrite!)
     if(values[index] == "" && new_key != "") {
         current_size++;
     } else { // either colliding or inserting a new_key of ""
@@ -50,7 +53,6 @@ int Hashtable::insert(string new_key) {
     return result; // maybe return something else on collision? 
 
 }
-
 
 string Hashtable::contains(string current_key){
     string result = "";
@@ -80,8 +82,36 @@ string Hashtable::remove(string old_key) {
     int index = hash(old_key);
 
     if(contains(old_key) == values[index]) {
+        current_size--;
         result = "\nthis is a test printout, this confirms remove() was reached.\n";
     }
 
     return result;
 }
+
+
+
+void Hashtable::display_table() {
+    for(int i = 0; i < total_capacity; ++i) {
+        if (!values[i].empty()){
+            // if the value at index i is not empty
+            cout << "index " << i << ":" << values[i] << endl;
+        } else {
+            // if the value is empty
+            cout << "index " << i << ": [empty]" << endl;
+        }
+    }
+}
+
+
+// Other Hashtable methods...
+
+// void Hashtable::display_table() {
+//     for(int i = 0; i < total_capacity; ++i) {
+//         if (!values[i].empty()) {
+//             cout << "Index " << i << ": " << values[i] << endl;
+//         } else {
+//             cout << "Index " << i << ": " << "[Empty]" << endl;
+//         }
+//     }
+// }

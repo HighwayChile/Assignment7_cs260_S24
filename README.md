@@ -33,7 +33,7 @@ contains() should search each index value and compare using a for loop.
 insert() should take the input and look for an index in a linked list. Something like: for(i : total_capacity) {increment num_nodes and if the same as one}
 
 
-remove() could use cointains, and if cointains(key) is in the hastable, remove that value. I have this halfway set up. Need testing and verification.
+remove() could use cointains(), and if cointains(key) is in the hastable, remove that value. I have this halfway set up. Need testing and verification. 
 
 
 

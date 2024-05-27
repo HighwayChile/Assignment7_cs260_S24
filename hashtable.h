@@ -12,6 +12,7 @@ struct Hashtable {
         int insert(string new_key);  // this could also be string type (returns bool Y or N)
         string contains(string current_key);
         string remove(string old_key);
+        void display_table();
         
 
     private:
@@ -20,10 +21,6 @@ struct Hashtable {
         string *values;  // this, here, is the pointer to the array of strings. I like the pointer setup, even if it is kinda tough sometimes.
         int hash(string key);
 
-
 };
-
-
-
 
 #endif
