@@ -38,57 +38,80 @@ int main(int argc, char **argv) {
             switch (menu_choice) {
             case 1:{
                 /* Ask for user input and use that string as reference for search */
-                cout << "You have chosen case 1 (Search)" << endl;
-                cout << "Please enter name to search" << endl;
+                // cout << "You have chosen case 1 (Search)" << endl;
+                cout << "Please enter name to search: ";
                 string user_input_search;
                 // getline reads teh whole line!
                 getline(cin, user_input_search);
-                cout << "Searching for: " << user_input_search << endl;
+                // cout << "Searching for: " << user_input_search << endl;
 
                 string query = main_table.contains(user_input_search);
                 // learned about "empty()" today, and wow, is that helpful! I love built-in functions! Learned from chatGPT.
-                // I saw it and almost immediately flipped my lid! I was trying to build my own function that transeverses the string...
+                cout << endl;
                 if(query.empty()) {
-                    cout << user_input_search << " is not in the table" << endl;
+                    cout << user_input_search << " not found in the table" << endl;
                 } else {
                     cout << user_input_search << " is in the table" << endl;
                 }
+                cout << endl;
                 break;
             }
             case 2:{
-                cout << "You have chosen case 2 (Add)" << endl;
-                cout << "what would you like to add? " << endl;
+                cout << "Please enter name to be added: ";
                 string user_input_add;
                 getline(cin, user_input_add);
+
                 main_table.insert(user_input_add);
+
+                string query = user_input_add;
+                cout << endl;
+
+                if(query.empty()) {
+                    cout << user_input_add << "Please give me a name!" << endl;
+                } else {
+                    cout << user_input_add << " added to the table" << endl;
+                }
+                cout << endl;
                 break;
                 }
             case 3:{
-                cout << "You have chosen case 3 (Remove)" << endl;
-                cout << "what would you like to remove? " << endl;
+                // cout << "You have chosen case 3 (Remove)" << endl;
+                cout << "Please enter name to be removed: " << endl;
                 string user_input_remove;
                 getline(cin, user_input_remove);
-                main_table.remove(user_input_remove);
+                string is_it_there = main_table.contains(user_input_remove);
+
+                string query = user_input_remove;
+                cout << endl;
+                if(query.empty() || is_it_there.empty()) {
+                    cout << "Please give me a name!" << endl;
+                } else {
+                    main_table.remove(user_input_remove);
+                    cout << user_input_remove << " removed from the table" << endl;
+                }
+                // main_table.remove(user_input_remove);
+                cout << endl;
                 break;
                 }
             case 4:{
                 cout << "You have chosen case 4 (Populate Table)" << endl;
                 main_table.insert("Hamilton"); 
                 main_table.insert("Joe");
-                main_table.insert("Frank");
+                main_table.insert("Frank"); // Frank collides with something... either Joe, Hamilton, or Reynolds but it must be reynolds, because reynolds comes after frank!
                 main_table.insert("Reynolds");   
                 main_table.insert("Dick");
                 main_table.insert("Jane");
+                cout << endl;
                 break;
                 }
             case 5:{
-                cout << "You have chosen case 5 (Display Table)" << endl;
-                // cout << main_table << endl;
+                // cout << "You have chosen case 5 (Display Table)" << endl;
                 main_table.display_table();
+                cout << endl;
                 break;
                 }
             case 6:{
-                cout << "You have chosen case 6 (Quit)" << endl;
+                // cout << "You have chosen case 6 (Quit)" << endl;
                 cout << "Quitting..." << endl;
                 system("pause");
                 main_table.~Hashtable();

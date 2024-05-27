@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// must do better comments. More verbose!
 struct Hashtable {
     public:
         Hashtable(int initialcapacity=25);

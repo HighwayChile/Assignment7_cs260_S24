@@ -6,11 +6,11 @@ hashtable for CS260 Spring 2024
 
 # Checklist  
  
-OVERALL - hashtable that solves collisions by overwriting the previous value.  
+OVERALL - hashtable that solves collisions by overwriting the previous value.   √
 TESTS - one for each function  
-insert() function - inserts a value into the hashtable at appropriate location  
-contains() function - searches hashtable for value, returns bool (Y or N)  
-(optional) delete function - removes value based on hash and returns that value  
+insert() function - inserts a value into the hashtable at appropriate location  √
+contains() function - searches hashtable for value, returns bool (Y or N)       √
+(optional) delete function - removes value based on hash and returns that value √ 
 
 SMARTER HASH TABLE -  
 
